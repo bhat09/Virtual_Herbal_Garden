@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Herbal Garden</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/slider.css' %}">
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
+
+<script src="{% static 'js/tms-0.4.1.js' %}"></script>
+<script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
+<script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+<style>.white-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.image-column {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+}
+
+.text-column {
+  flex: 2;
+  width: 100%;
+}
+
+.text-column h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.text-column p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="h_phone">Need Help? Call Us +91 6362532981</div>
+      <h1><a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a> </h1>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="menu_block">
+    <div class="container_12">
+      <div class="grid_12">
+        +
+        
+        <nav class="">
+          <ul class="sf-menu">
+            <li ><a href="{% url 'index' %}">Home</a></li>
+            <li class="current"><a href="{% url 'about' %}">About</a></li>
+           
+            <li ><a href="{% url 'herbs' %}">Herbs</a></li>
+            <li><a href="{% url 'add_herbs' %}">Add Herb</a></li>
+            <li ><a href="{% url 'find_remidy' %}">Find Remedy</a></li>
+            <li><a href="{% url 'contacts' %}">Contacts</a></li>
+            <li style="width: 30px;"></li> 
+            <li style="width: 30px;"></li> 
+            <li style="width: 10px;"></li> 
+            
+             
+            </div>
+          </li>
+          </ul>
+          
+        </nav>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</header>
+<div class="grid_12">
+  <div class="white-box">
+    <div class="content-wrapper">
+      <!-- Left Column (Image) -->
+      <div class="image-column">
+        <img src="{% static 'images/about.jpg' %}" alt="Herbal Garden" class="about-image">
+      </div>
+      <!-- Right Column (Text) -->
+      <div class="text-column"><br><br><br>
+        <h2>Welcome to the Virtual Herbal Garden </h2><br><br>
+        <p>
+          The Virtual Herbal Garden is an online platform providing information about various medicinal and culinary herbs. 
+          Our goal is to educate people about the benefits of herbal plants, their uses, and how to cultivate them at home.
+          Users can explore detailed descriptions of different herbs, including their medicinal properties, best growing conditions, and traditional uses. 
+          Additionally, users can contribute by adding new herb details to our collection.Discover the power of nature with our Virtual Herbal Garden—a digital platform designed to provide valuable insights into the world of herbs. Whether you're an enthusiast, a student, or someone interested in herbal remedies, our website is your go-to resource for learning about medicinal and culinary plants.
+        <br><br><br><br><br><br><br><br>
+        </p>
+       
+      </div>
+      </div>
+      </div>
+      </html>

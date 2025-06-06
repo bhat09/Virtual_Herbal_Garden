@@ -1,0 +1,162 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Herbal Garden</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/slider.css' %}">
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
+
+<script src="{% static 'js/tms-0.4.1.js' %}"></script>
+<script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
+<script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+<style>
+  .white-box h2 {
+    font-size: 32px; /* Large font size */
+    font-weight: bold; /* Bold text */
+    color: black; /* Black color */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+ /* Center the entire form on the page */
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Push form to vertical center */
+}
+
+/* White box container */
+.white-box {
+    width: 50%;
+    padding: 20px;
+    background-color: white; /* White background */
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+    text-align: center; /* Center text inside */
+}
+
+/* Form styling */
+.form-container {
+    text-align: left; /* Align labels & inputs properly */
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit button styling */
+.form-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #218838;
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="h_phone">Need Help? Call Us +91 6362532981</div>
+      <h1><a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a> </h1>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="menu_block">
+    <div class="container_12">
+      <div class="grid_12">
+        +
+        
+        <nav class="">
+          <ul class="sf-menu">
+            <li ><a href="{% url 'index' %}">Home</a></li>
+            <li ><a href="{% url 'about' %}">About</a></li>
+          
+            <li ><a href="{% url 'herbs' %}">Herbs</a></li>
+            <li ><a href="{% url 'add_herbs' %}">Add Herb</a></li>
+            <li class="current"><a href="{% url 'find_remidy' %}">Find Remedy</a></li>
+            <li><a href="{% url 'contacts' %}">Contacts</a></li>
+            <li style="width: 30px;"></li> 
+            <li style="width: 30px;"></li> 
+            <li style="width: 10px;"></li> 
+            
+             
+            </div>
+          </li>
+          </ul>
+          
+        </nav>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</header>
+<div class="center-content">  <!-- Added this wrapper -->
+  <div class="white-box">
+    <div class="content-wrapper">
+      <h2>Find Remedy</h2>
+
+      <div class="form-container">
+        <h3>Find remedies for your health issues</h3>
+        <form action="{% url 'find_remidy' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="disease" placeholder="Enter your disease..." required>  <!-- ✅ Changed from symptom to disease -->
+            <button type="submit">Find Remedy</button>
+        </form>
+        
+        
+      </div>
+      {% if messages %}
+    <script>
+        window.onload = function() {
+            {% for message in messages %}
+                alert("{{ message }}");  // ✅ Show message as a popup
+            {% endfor %}
+        };
+    </script>
+{% endif %}
+
+      
+      {% if form.errors %}
+          <div style="color: red;">
+              <strong>Errors:</strong>
+              <ul>
+                  {% for field in form %}
+                      {% for error in field.errors %}
+                          <li>{{ field.label }}: {{ error }}</li>
+                      {% endfor %}
+                  {% endfor %}
+              </ul>
+          </div>
+      {% endif %}
+    </div>
+  
+      </html>
