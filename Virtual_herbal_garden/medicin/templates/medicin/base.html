@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+
+    {% block head %}{% endblock %} 
+    <!-- JS Libraries -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
+    <script src="{% static 'js/tms-0.4.1.js' %}"></script>
+    <script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
+    <script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+</head>
+<body>
+
+    {% include 'medicin/navbar.html' %}
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

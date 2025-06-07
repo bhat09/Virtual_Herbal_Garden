@@ -12,7 +12,7 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-    return render(request,'medicin/index.html')
+    return render(request, 'medicin/index.html', {'current_page': 'index'})
 
 """def herbs(request):
     herbs = Herb.objects.all()  # Fetch all herbs from the database
@@ -46,12 +46,15 @@ def herbs(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'medicin/herbs.html', {'page_obj': page_obj, 'query': query})
-
-
+    return render(request, 'medicin/herbs.html', {
+    'page_obj': page_obj,
+    'query': query,
+    'current_page': 'herbs'
+})
 
 def about(request):
-    return render(request,'medicin/about.html')
+    return render(request, 'medicin/about.html', {'current_page': 'about'})
+
 
 def add_herbs(request):
     form = HerbForm()
@@ -84,7 +87,8 @@ def add_herbs(request):
     
 
 def contacts(request):
-    return render(request,'medicin/contacts.html')
+    return render(request, 'medicin/contacts.html', {'current_page': 'contacts'})
+
 
 def contact_view(request):
     if request.method == "POST":
@@ -95,7 +99,8 @@ def contact_view(request):
     else:
         form = ContactForm()
     
-    return render(request, "contacts.html", {"form": form})
+    return render(request, "contacts.html", {"form": form, "current_page": "contacts"})
+
 
 
 from django.shortcuts import render, redirect
@@ -127,7 +132,8 @@ def find_remidy(request):
         else:
             messages.error(request, "Please enter a valid disease name.")  # Display popup
 
-    return render(request, "medicin/find_remidy.html")
+    return render(request, "medicin/find_remidy.html", {'current_page': 'find_remidy'})
+
 
 """
 def find_remidy(request):

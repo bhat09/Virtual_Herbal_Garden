@@ -1,18 +1,11 @@
 
+{% extends 'medicin/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Herbal Garden</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{% static 'css/style.css' %}"> 
-<link rel="stylesheet" href="{% static 'css/slider.css' %}">
-<script src="{% static 'js/jquery.js' %}"></script>
-<script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
 
-<script src="{% static 'js/tms-0.4.1.js' %}"></script>
-<script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
-<script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+{% block title %}Home{% endblock %}
+
+  
+{% block content %}
 <style>
   .white-box h2 {
     font-size: 32px; /* Large font size */
@@ -78,47 +71,7 @@
 }
 
 </style>
-</head>
-<body>
-<header>
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="h_phone">Need Help? Call Us +91 6362532981</div>
-      <h1><a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a> </h1>
-      <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-  </div>
-  <div class="menu_block">
-    <div class="container_12">
-      <div class="grid_12">
-        +
-        
-        <nav class="">
-          <ul class="sf-menu">
-            <li ><a href="{% url 'index' %}">Home</a></li>
-            <li ><a href="{% url 'about' %}">About</a></li>
-          
-            <li ><a href="{% url 'herbs' %}">Herbs</a></li>
-            <li ><a href="{% url 'add_herbs' %}">Add Herb</a></li>
-            <li class="current"><a href="{% url 'find_remidy' %}">Find Remedy</a></li>
-            <li><a href="{% url 'contacts' %}">Contacts</a></li>
-            <li style="width: 30px;"></li> 
-            <li style="width: 30px;"></li> 
-            <li style="width: 10px;"></li> 
-            
-             
-            </div>
-          </li>
-          </ul>
-          
-        </nav>
-        <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-</header>
+
 <div class="center-content">  <!-- Added this wrapper -->
   <div class="white-box">
     <div class="content-wrapper">
@@ -158,5 +111,4 @@
           </div>
       {% endif %}
     </div>
-  
-      </html>
+{% endblock %}

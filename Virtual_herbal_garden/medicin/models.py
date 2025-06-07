@@ -1,3 +1,4 @@
+
 from django.db import models
 from ckeditor.fields import RichTextField
 # Create your models here.
@@ -15,7 +16,7 @@ class Add_herb(models.Model):
     image = models.ImageField(upload_to='herbs/', blank=True, null=True) 
 
 
-class ContactMessage(models.Model):
+class ContactMessage(models.Model): 
     name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()

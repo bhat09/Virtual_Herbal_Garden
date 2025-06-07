@@ -1,146 +1,15 @@
+{% extends 'medicin/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Herbal Garden</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{% static 'css/style.css' %}"> 
-<link rel="stylesheet" href="{% static 'css/slider.css' %}">
-<script src="{% static 'js/jquery.js' %}"></script>
-<script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
 
-<script src="{% static 'js/tms-0.4.1.js' %}"></script>
-<script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
-<script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
-<style>
-  /* Container Styling */
-  .container_12 {
-      max-width: 900px;
-      margin: auto;
-  }
+{% block title %}Herbs{% endblock %}
 
-  /* Box Structure for Each Herb */
-  .herb-box {
-      background: #f9f9f9; /* Light background */
-      border: 2px solid #ddd; /* Light border */
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  }
-
-  /* Title Styling */
-  .blog_title h1 {
-      font-size: 22px;
-      color: #333;
-      text-align: center;
-      margin-bottom: 10px;
-  }
-
-  /* Image Styling */
-  .herb-image {
-      text-align: center;
-      margin-top: 10px;
-  }
-
-  .img_inner {
-      display: block;
-      margin: 0 auto;
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Date and Description Styling */
-  time {
-      display: block;
-      text-align: center;
-      font-weight: bold;
-      color: #666;
-      margin-bottom: 5px;
-  }
-
-  p {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.5;
-      text-align: justify;
-  }
-      /* Pagination Styling */
-      .pagination {
-        text-align: center;
-        margin-top: 20px;
-    }
-    .pagination a {
-        text-decoration: none;
-        padding: 10px 20px;
-        margin: 5px;
-        background: #4CAF50;
-        color: white;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    .pagination .prev-btn {
-        background: #f39c12;
-    }
-    .pagination .next-btn {
-        background: #3498db;
-    }
-    .pagination .page-number {
-        font-size: 18px;
-        font-weight: bold;
-        margin: 0 10px;
-    }
-
-</style>
-</head>
-<body>
-<header>
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="h_phone">Need Help? Call Us +91 6362532981</div>
-      <h1><a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a> </h1>
-      <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-  </div>
-  <div class="menu_block">
-    <div class="container_12">
-      <div class="grid_12">
-        
-        <nav class="">
-          <ul class="sf-menu">
-            <li ><a href="{% url 'index' %}">Home</a></li>
-            <li class="with_ul"><a href="{% url 'about' %}">About</a></li>
-           
-            <li class="current"><a href="{% url 'herbs' %}">Herbs</a></li>
-            <li><a href="{% url 'add_herbs' %}">Add Herb</a></li>
-            <li ><a href="{% url 'find_remidy' %}">Find Remedy</a></li>
-            <li><a href="{% url 'contacts' %}">Contacts</a></li>
-            <li style="width: 30px;"></li> 
-            <li style="width: 30px;"></li> 
-            <li style="width: 10px;"></li> 
-            <li>
-              <div class="blog_search">
-                <form id="search-form" action="{% url 'herbs' %}" method="GET">
-                  <input type="text" name="query" placeholder="Search herbs..." value="{{ query }}">
-                  <button type="submit">🔍</button>
-                </form>
-              </div>
-            </li>
-          </ul>
-          
-        </nav>
-        <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-</header>
-
-
-<div class="content">
+{% block extra_css %}
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/herbs.css' %}">
+{% endblock %}
+{% block content %}
+<div class="herb-page">
   <div class="container_12">
     <h3>Our Herbs</h3>
 
@@ -152,7 +21,6 @@
     <div class="blog herb-box">
       <time datetime="{{ herb.date_added|date:'Y-m-d' }}">{{ herb.date_added|date:'M d' }}</time>
       <div class="blog_title"><h1>{{ herb.name }}</h1></div>
-
       <div class="extra_wrapper">
         <div class="text1"><strong>Scientific Name:</strong> {{ herb.scientific_name }}</div>
         <div class="herb-image">
@@ -171,9 +39,7 @@
         <a href="?query={{ query }}&page=1">&laquo; First</a>
         <a href="?query={{ query }}&page={{ page_obj.previous_page_number }}">Previous</a>
       {% endif %}
-
       <span class="page-number">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-
       {% if page_obj.has_next %}
         <a href="?query={{ query }}&page={{ page_obj.next_page_number }}">Next</a>
         <a href="?query={{ query }}&page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
@@ -182,7 +48,4 @@
 
   </div>
 </div>
-
-
-</body>
-</html>
+{% endblock %}

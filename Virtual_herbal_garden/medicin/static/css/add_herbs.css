@@ -1,0 +1,62 @@
+.white-box h2 {
+    font-size: 32px; /* Large font size */
+    font-weight: bold; /* Bold text */
+    color: black; /* Black color */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+ /* Center the entire form on the page */
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Push form to vertical center */
+}
+
+/* White box container */
+.white-box {
+    width: 50%;
+    padding: 20px;
+    background-color: white; /* White background */
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+    text-align: center; /* Center text inside */
+}
+
+/* Form styling */
+.form-container {
+    text-align: left; /* Align labels & inputs properly */
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit button styling */
+.form-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #218838;
+}
